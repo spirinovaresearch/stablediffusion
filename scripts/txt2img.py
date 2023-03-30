@@ -41,7 +41,8 @@ def load_model_from_config(config, ckpt, device=torch.device("cuda"), verbose=Fa
         print(u)
 
     if device == torch.device("cuda"):
-        model.cuda()
+        #model.cuda()
+        model.cuda().half()
     elif device == torch.device("cpu"):
         model.cpu()
         model.cond_stage_model.device = "cpu"
